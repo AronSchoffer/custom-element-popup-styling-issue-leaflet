@@ -1,4 +1,4 @@
-import MyPopup from "./popup.js";
+import "./popup.js";
 var map = L.map('map').setView([51.505, -0.09], 13);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -8,15 +8,13 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 const mypopup = document.createElement('my-popup');
 mypopup.style.backgroundColor = 'red';
 
-L.popup()
-    .setLatLng([51.513, -0.09])
-    .setContent(mypopup)
-    .openOn(map);
+const m1 = L.marker([51.5, -0.09]).addTo(map);
+m1.bindPopup(mypopup).openPopup()
+
 
 const p = document.createElement('p');
+p.textContent = 'p is red';
 p.style.backgroundColor = 'red';
 
-L.popup()
-    .setLatLng([51.5, -0.09])
-    .setContent(p)
-    .openOn(map);
+const m2 = L.marker([51.5, -0.05]).addTo(map);
+m2.bindPopup(p).openPopup()
